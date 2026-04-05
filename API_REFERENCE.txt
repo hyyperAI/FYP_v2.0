@@ -1,0 +1,37 @@
+Upwork Job Analysis API Reference
+================================
+
+Base URL: http://localhost:8000
+
+Scraping Endpoints
+------------------
+POST /api/upwork/start_scrape
+- Starts an asynchronous scraping task
+- Body: { "query": "string", "page": int, "jobs_per_page": int, "headless": bool, "workers": int, "fast": bool }
+- Returns: { "task_id": "string", "status": "started" }
+
+GET /api/upwork/scraping_status/{task_id}
+- Checks the status of a scraping task
+- Returns: { "task_id": "string", "status": "in_progress|completed|failed", "job_count": int, "remaining_jobs": int }
+
+GET /api/upwork/get_scraping_results/{task_id}
+- Retrieves results for a completed task (paginated)
+- Query Params: ?page=1&per_page=10
+- Returns: { "jobs": [...], "total_jobs": int, "total_pages": int }
+
+Database Endpoints
+------------------
+GET /api/upwork/most_recent_jobs
+- Gets the 5 most recent jobs
+- Query Params: ?query=string (optional filter)
+- Returns: { "jobs": [...], "count": int }
+
+Monitoring Endpoints
+--------------------
+POST /api/monitor/start
+- Starts continuous monitoring
+- Body: { "query": "string", "webhook_url": "string", "refresh_interval": int }
+
+GET /api/monitor/status/{session_id}
+- Gets real-time monitoring stats
+- Returns: { "status": "running", "jobs_found": int, "webhooks_sent": int }
