@@ -1,0 +1,6 @@
+This file is for my future self to remember the context of this project.
+The project is a tool to automate the scraping and analysis of Upwork job listings.
+It has a modular backend with FastAPI, SQLite, and Selenium.
+The monitoring system runs 24/7 and sends alerts via webhooks.
+The AI integration uses Minimax to generate market reports.
+The project is currently at v7, just before starting the frontend development.
