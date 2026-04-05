@@ -1,0 +1,13 @@
+Monitoring:
+For continue monitoring of upwork without any Error
+----------------------------------
+
+API_URL= DEFAULT = 8000 MUST BE GIVEN IF IT'S NOT 8000
+ Step 1: Start the API Server
+
+  # Keep this running in the background
+  python -m uvicorn backend.api.monitoring:app --host 0.0.0.0 --port 8002 --reload
+
+  Step 2: Start Monitoring
+
+python -m backend.monitoring.cli --api-url http://localhost:8002 start --query "Python Developer" --webhook-url "https://hooks.slack.com/YOUR/WEBHOOK" --refresh-interval 60  --headless
