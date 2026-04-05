@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Distribution / packaging
+build/
+dist/
+lib/
+*.egg-info/
+
+downloaded_files/
+*.json
+
+.idea/
+.vscode/
+.env
+*.db
+*.db-shm
+*.db-wal
+node_modules/
+.expo/
+logs/
+analysis_report/
+upwork_analysis/scrape_data.py
+upwork_analysis/analyze_data.py
